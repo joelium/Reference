@@ -32,18 +32,19 @@ contract ContractName {
 ## Functions
 Syntax
 ```solidity
-function functionName(datatype stored** _parameterName, datatype stored** _parameterName, ...) functionVisibility*** {
+function functionName(datatype stored** _parameterName, datatype stored** _parameterName, ...) functionAccess*** {
 	//function body
 }
 ```
 ** Only required for reference types: arrays, structures, mappings, strings. Options: memory, ###  
-*** "public": Can be used by other contracts
+*** "public": Can be used by other contracts, "private": Can only be used by your contract.
+    Functions are public by default.
 
 Example:  
 
 ```solidity
 function myFunction(string memory _varName1, uint _varName2) public {
-
+	//function body
 }
 ```
 
@@ -74,6 +75,18 @@ uint[] public myDynamicArray;
 myStructure[] myOtherDynamicArray;
 ```
 
+Adding to an array
+
+```solidity
+// array.push(value);
+uint[] myArray;
+myArray.push(1);
+myArray.push(1);
+myArray.push(2);
+myArray.push(3);
+// myArray no equals [1, 1, 2, 3]
+```
+
 ### Structures
 
 Complex data type. Has multiple properties:
@@ -85,6 +98,9 @@ contract ContractName {
 		uint myUnsignedInteger;
 		string myString;
 	}
+	
+	// Create a variable of the new data type
+	MyStructureName myNewVar = MyStructureName(100, "My string");
 }
 ```
 
@@ -99,5 +115,5 @@ contract ContractName {
 '/' division  
 '**' to the power of  
 '%' modulus  
- > 13 % 5 = 3
+ > 13 % 5 = 3  
  > 5 goes into 13 twice with a remainder of 3
